@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_app/pages/home/home.dart';
+import 'package:graphql_app/utils/graphql_configuration/graphql_configuration.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 
-void main() => runApp(MyApp());
+GraphQLConfiguration graphQLConfiguration = GraphQLConfiguration();
+
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  return runApp(GraphQLProvider(
+    client: graphQLConfiguration.client,
+    child: MyApp(),
+  ));
+}
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'GraphQL',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,

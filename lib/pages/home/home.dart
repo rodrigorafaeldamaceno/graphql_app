@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:graphql_app/pages/crud/create_page.dart';
+import 'package:graphql_app/pages/crud/list_all_page.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -13,7 +15,38 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('GraphQL'),
         centerTitle: true,
       ),
-      body: Container(),
+      body: SingleChildScrollView(
+        child: Container(
+          // padding: EdgeInsets.only(top: 20),
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height * 0.9,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              RaisedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ListAllPage()),
+                  );
+                },
+                child: Text('Listar Todos'),
+              ),
+              SizedBox(height: 20),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CreatePage()),
+                  );
+                },
+                child: Text('Cadastrar'),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
