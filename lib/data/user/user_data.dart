@@ -9,7 +9,7 @@ class DataUser {
 
   Future<QueryResult> createUser(String name, String email, String age) async {
     GraphQLClient _client = graphQLConfiguration.clientToQuery();
-    
+
     QueryResult result = await _client.mutate(
       MutationOptions(
         document: querys.createUser(
@@ -30,24 +30,32 @@ class DataUser {
     return result;
   }
 
-  Future<QueryResult> getAllUsers() async {
-    GraphQLClient _client = graphQLConfiguration.clientToQuery();
-    QueryResult result = await _client.query(
-      QueryOptions(
-        document: querys.getAllUsers(),
-      ),
-    );
-    List<User> users = [];
-    result.data['users'].forEach((value) {
-      users.add(User.fromJson(value));
-    });
+  BaseOptions getAllUsers() {
+    // GraphQLClient _client = graphQLConfiguration.clientToQuery();
+    // QueryResult result = await _client.query(
+    //   QueryOptions(
+    //     documentNode: gql(
+    //       querys.getAllUsers(),
+    //     ),
+    //     pollInterval: 10,
+    //   ),
+    // );
+    // List<User> users = [];
+    // result.data['users'].forEach((value) {
+    //   users.add(User.fromJson(value));
+    // });
 
-    print('Numero de usuarios: ${users.length}');
+    // print('Numero de usuarios: ${users.length}');
 
     // users.forEach((user) {
     //   print(user.id);
     // });
 
-    return result;
+    return QueryOptions(
+      documentNode: gql(
+        querys.getAllUsers(),
+      ),
+      pollInterval: 10,
+    );
   }
 }

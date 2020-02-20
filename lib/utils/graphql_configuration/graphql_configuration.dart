@@ -15,6 +15,10 @@ class GraphQLConfiguration {
     ),
   );
 
+  final AuthLink authLink = AuthLink(
+    getToken: () async => 'Bearer <YOUR_PERSONAL_ACCESS_TOKEN>',
+  );
+
   GraphQLClient clientToQuery() {
     return GraphQLClient(
       link: httpLink,

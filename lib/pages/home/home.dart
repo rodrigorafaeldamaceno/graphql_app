@@ -30,12 +30,10 @@ class _MyHomePageState extends State<MyHomePage> {
               RaisedButton(
                 child: Text('Listar Todos'),
                 onPressed: () async {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => ListAllPage()),
-                  // );
-
-                  await controller.getAllUsers();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ListAllPage()),
+                  );
                 },
               ),
               SizedBox(height: 20),
