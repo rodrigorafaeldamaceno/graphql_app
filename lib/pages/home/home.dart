@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graphql_app/data/user/user_data.dart';
 import 'package:graphql_app/pages/crud/create_page.dart';
 import 'package:graphql_app/pages/crud/list_all_page.dart';
+import 'package:graphql_app/stores/home/home_store.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -10,6 +11,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   DataUser controller = DataUser();
+  HomeStore store = HomeStore();
+
+  @override
+  void initState() {
+    store.initOneSignal();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +48,11 @@ class _MyHomePageState extends State<MyHomePage> {
               RaisedButton(
                 child: Text('Cadastrar'),
                 onPressed: () async {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => CreatePage()),
-                  // );
-                  await controller.createUser('flutter', 'flutter', '15');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CreatePage()),
+                  );
+                  // await controller.createUser('flutter', 'flutter', '15');
                 },
               ),
             ],

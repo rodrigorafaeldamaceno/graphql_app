@@ -15,13 +15,17 @@ dependencies:
   graphql_flutter: ^3.0.0
   gql_code_gen: ^0.1.5
   http: ^0.12.0+4
+  onesignal_flutter: ^2.3.3
+  flutter_dotenv: ^2.1.0
+
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
+assets:
+    - .env
 
 flutter:
 
