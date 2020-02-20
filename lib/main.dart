@@ -7,10 +7,10 @@ GraphQLConfiguration graphQLConfiguration = GraphQLConfiguration();
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   return runApp(GraphQLProvider(
     client: graphQLConfiguration.client,
-    child: MyApp(),
+    child: CacheProvider(child: MyApp()),
   ));
 }
 

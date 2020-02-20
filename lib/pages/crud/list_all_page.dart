@@ -5,7 +5,7 @@ class ListAllPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Listar todos'),
+        title: Text('Listar'),
         centerTitle: true,
       ),
     );
